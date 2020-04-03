@@ -305,7 +305,7 @@ def stale_issues(labels, older_then, break_on):
             for label in issue['labels']:
                 if break_on[0] in label['name']:
                     break_issues_on_label[label['name']].append(issue)
-        break_issues_on_label = sorted(break_issues_on_label.items(), key= lambda (k,v): len(v))
+        break_issues_on_label = sorted(break_issues_on_label.items(), key= lambda k_v: len(k_v[1]))
         for label in break_issues_on_label:
             issues = label[1]
             print("\nLabel '%s' has %d issues." % (label[0], len(issues)))
